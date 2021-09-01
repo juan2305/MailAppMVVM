@@ -13,6 +13,7 @@ namespace MailAppMVVM
         public MainPage()
         {
             InitializeComponent();
+            
         }
     }
 }
