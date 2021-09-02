@@ -8,7 +8,7 @@
     </ContentPage.BindingContext>
 <StackLayout>
         <Frame BackgroundColor="Red" Padding="4" CornerRadius="0">
-            <Label Text="Cmail" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="36"/>
         </Frame>
         <ListView ItemsSource="{Binding MailList}"></ListView>
     </StackLayout>
