@@ -10,6 +10,7 @@ namespace MailAppMVVM.Models
         public string ToMail { get; set; }
         public string BodyMail { get; set; }
         public string SubjectMail { get; set; }
-        public DateTime DateMail { get; set; }
+        public string DateMail { get; set; }
+        public string IconMail { get; set; }
     }
 }

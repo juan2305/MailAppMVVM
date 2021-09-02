@@ -1,16 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:local="clr-namespace:MailAppMVVM.ViewModel"
-    x:Class="MailAppMVVM.MainPage">
+             xmlns:local="clr-namespace:MailAppMVVM.ViewModel"
+             x:Class="MailAppMVVM.MainPage">
     <ContentPage.BindingContext>
         <local:NewMailPageViewModel/>
     </ContentPage.BindingContext>
 <StackLayout>
-        <Frame BackgroundColor="Red" Padding="4" CornerRadius="0">
-            <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="36"/>
+        <Frame BackgroundColor="Red" Padding="10" CornerRadius="0">
+            <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="40"/>
         </Frame>
-        <ListView ItemsSource="{Binding MailList}"></ListView>
+        <ListView 
+            ItemsSource="{Binding MailList}"
+            HasUnevenRows="True"
+            SeparatorVisibility="None"
+            SeparatorColor="Black"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="2">
+                            <Frame CornerRadius="10">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="AccountLogo" VerticalOptions="Start" HorizontalOptions="Start"></Image>
+                                    <StackLayout VerticalOptions="Start">
+                                        <Label VerticalOptions="Start" Text="{Binding FromMail}" HorizontalOptions="Start"></Label>
+                                        <Label VerticalOptions="Center" Text="{Binding ToMail}"></Label>
+                                        <Label VerticalOptions="End" Text="{Binding SubjectMail}"></Label>
+                                        <Label VerticalOptions="End" Text="{Binding BodyMail}"></Label>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label VerticalOptions="StartAndExpand" Text="{Binding DateMail}" HorizontalOptions="StartAndExpand"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                                
+                            </Frame>
+                            
+                            
+                        </Grid>
+                    </ViewCell>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>
