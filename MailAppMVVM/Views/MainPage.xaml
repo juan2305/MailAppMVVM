@@ -6,7 +6,10 @@
     <ContentPage.BindingContext>
         <local:NewMailPageViewModel/>
     </ContentPage.BindingContext>
-<StackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
         <Frame BackgroundColor="Red" Padding="10" CornerRadius="0">
             <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="40"/>
         </Frame>
@@ -15,23 +18,30 @@
             HasUnevenRows="True"
             SeparatorVisibility="None"
             SeparatorColor="Black"
+            IsPullToRefreshEnabled="True"
+            RefreshControlColor="Green"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="2">
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete"></MenuItem>
+                        </ViewCell.ContextActions>
+                    <Grid Padding="2">
                             <Frame CornerRadius="10">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="AccountLogo" VerticalOptions="Start" HorizontalOptions="Start"></Image>
                                     <StackLayout VerticalOptions="Start">
-                                        <Label VerticalOptions="Start" Text="{Binding FromMail}" HorizontalOptions="Start"></Label>
+                                        <Grid>
+                                            <Label VerticalOptions="Center" Text="{Binding FromMail}" HorizontalOptions="Start" ></Label>
+                                            <Label VerticalOptions="Center" Text="{Binding DateMail}" HorizontalOptions="EndAndExpand"></Label>
+                                        </Grid>
+                                        
                                         <Label VerticalOptions="Center" Text="{Binding ToMail}"></Label>
                                         <Label VerticalOptions="End" Text="{Binding SubjectMail}"></Label>
                                         <Label VerticalOptions="End" Text="{Binding BodyMail}"></Label>
                                     </StackLayout>
-                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                        <Label VerticalOptions="StartAndExpand" Text="{Binding DateMail}" HorizontalOptions="StartAndExpand"></Label>
-                                    </StackLayout>
+                                    
                                 </StackLayout>
                                 
                             </Frame>
