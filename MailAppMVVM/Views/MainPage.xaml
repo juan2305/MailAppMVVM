@@ -8,7 +8,10 @@
         <local:NewMailPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="NavigationBarButton" Order="Primary" Text="Add" Priority="0" Clicked="NavigationBarButton_Clicked"/>
+        <ToolbarItem Name="NavigationBarButton" 
+                     Order="Primary" Text="Add" 
+                     Priority="0" 
+                     Clicked="NavigationBarButton_Clicked"/>
         
     </ContentPage.ToolbarItems>
     <StackLayout>

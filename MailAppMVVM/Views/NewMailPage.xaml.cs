@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MailAppMVVM.Models;
+using MailAppMVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +23,10 @@ namespace MailAppMVVM.Views
             Navigation.PopAsync();
         }
 
-        private void SendButton_Clicked(object sender, EventArgs e)
+         private void SendButton_Clicked(object sender, EventArgs e)
         {
-
+            MailContent mailContent = ((AddNewMailViewModel)BindingContext).mailContent;
+            Navigation.PopAsync();
         }
     }
 }

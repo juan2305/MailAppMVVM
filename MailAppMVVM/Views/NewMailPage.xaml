@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MailAppMVVM.Views.NewMailPage" 
-             xmlns:viewModel="clr-namespace:MailAppMVVM.ViewModel">
-    <ContentPage.Content>
+             xmlns:local="clr-namespace:MailAppMVVM.ViewModel">
+    <ContentPage.BindingContext>
+        <local:AddNewMailViewModel/>
+    </ContentPage.BindingContext>
 
-        <StackLayout>
-            <Entry Placeholder="From" ></Entry>
-            <Entry Placeholder="To"></Entry>
-            <Entry Placeholder="Subject"></Entry>
-            <Entry Placeholder="Body"></Entry>
-            <Button Text="Send" Clicked="SendButton_Clicked"></Button>
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <Entry Placeholder="From" Text="{Binding mailContent.FromMail}"></Entry>
+        <Entry Placeholder="To" Text="{Binding mailContent.ToMail}"></Entry>
+        <Entry Placeholder="Subject" Text="{Binding mailContent.SubjectMail}"></Entry>
+        <Entry Placeholder="Body" Text="{Binding mailContent.BodyMail}"></Entry>
+        <Button Text="Send" Clicked="SendButton_Clicked"></Button>
+    </StackLayout>
 </ContentPage>
