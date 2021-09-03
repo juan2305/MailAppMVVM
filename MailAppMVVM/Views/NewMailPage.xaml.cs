@@ -16,5 +16,14 @@ namespace MailAppMVVM.Views
         {
             InitializeComponent();
         }
+        public void CreateNewMail(object sender, EventArgs e)
+        {
+            Navigation.PopAsync();
+        }
+
+        private void SendButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

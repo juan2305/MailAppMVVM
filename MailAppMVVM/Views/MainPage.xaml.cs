@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MailAppMVVM.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,8 +13,14 @@ namespace MailAppMVVM
     {
         public MainPage()
         {
+
             InitializeComponent();
-            
+        }
+       
+
+        private void NavigationBarButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new NewMailPage());
         }
     }
 }

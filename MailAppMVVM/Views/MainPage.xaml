@@ -3,16 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:MailAppMVVM.ViewModel"
              x:Class="MailAppMVVM.MainPage">
+
     <ContentPage.BindingContext>
         <local:NewMailPageViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"></ToolbarItem>
+        <ToolbarItem Name="NavigationBarButton" Order="Primary" Text="Add" Priority="0" Clicked="NavigationBarButton_Clicked"/>
+        
     </ContentPage.ToolbarItems>
     <StackLayout>
         <Frame BackgroundColor="Red" Padding="10" CornerRadius="0">
-            <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="40"/>
+      
+             <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="38"/>
+             
         </Frame>
+      
         <ListView 
             ItemsSource="{Binding MailList}"
             HasUnevenRows="True"
@@ -27,8 +32,8 @@
                         <ViewCell.ContextActions>
                             <MenuItem Text="Delete"></MenuItem>
                         </ViewCell.ContextActions>
-                    <Grid Padding="2">
-                            <Frame CornerRadius="10">
+                    <Grid Padding="01">
+                            <Frame CornerRadius="0">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="AccountLogo" VerticalOptions="Start" HorizontalOptions="Start"></Image>
                                     <StackLayout VerticalOptions="Start">
