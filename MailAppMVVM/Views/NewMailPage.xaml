@@ -12,6 +12,6 @@
         <Entry Placeholder="To" Text="{Binding mailContent.ToMail}"></Entry>
         <Entry Placeholder="Subject" Text="{Binding mailContent.SubjectMail}"></Entry>
         <Entry Placeholder="Body" Text="{Binding mailContent.BodyMail}"></Entry>
-        <Button Text="Send" Clicked="SendButton_Clicked"></Button>
+        <Button Text="Send" Clicked="SendButton_Clicked" Command="{Binding mailContent}"></Button>
     </StackLayout>
 </ContentPage>

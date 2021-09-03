@@ -1,41 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MailAppMVVM.ViewModel"
+             xmlns:local="clr-namespace:MailAppMVVM.ViewModel" 
              x:Class="MailAppMVVM.MainPage">
 
     <ContentPage.BindingContext>
         <local:NewMailPageViewModel/>
     </ContentPage.BindingContext>
+    <NavigationPage.TitleView>
+        <Label Text="Inbox" FontSize="28" TextColor="#FFFF" HorizontalOptions="Center"/>
+  
+    </NavigationPage.TitleView>
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="NavigationBarButton" 
+        <ToolbarItem 
+                     Name="NavigationBarButton" 
                      Order="Primary" Text="Add" 
-                     Priority="0" 
+                     Priority="0"
                      Clicked="NavigationBarButton_Clicked"/>
-        
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <Frame BackgroundColor="Red" Padding="10" CornerRadius="0">
-      
-             <Label Text="Cmail" HorizontalTextAlignment="Start" TextColor="White" FontSize="38"/>
-             
-        </Frame>
-      
         <ListView 
             ItemsSource="{Binding MailList}"
             HasUnevenRows="True"
             SeparatorVisibility="None"
             SeparatorColor="Black"
             IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding MailList, Mode=OneWay}"
+            RefreshCommand="{Binding Refresh}"
             RefreshControlColor="Green"
             >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Delete"></MenuItem>
+                            <MenuItem Text="Delete" Command="{Binding DeleteCommand}"></MenuItem>
                         </ViewCell.ContextActions>
-                    <Grid Padding="01">
+                        <Grid Padding="01">
                             <Frame CornerRadius="0">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="AccountLogo" VerticalOptions="Start" HorizontalOptions="Start"></Image>
@@ -44,23 +44,17 @@
                                             <Label VerticalOptions="Center" Text="{Binding FromMail}" HorizontalOptions="Start" ></Label>
                                             <Label VerticalOptions="Center" Text="{Binding DateMail}" HorizontalOptions="EndAndExpand"></Label>
                                         </Grid>
-                                        
                                         <Label VerticalOptions="Center" Text="{Binding ToMail}"></Label>
                                         <Label VerticalOptions="End" Text="{Binding SubjectMail}"></Label>
                                         <Label VerticalOptions="End" Text="{Binding BodyMail}"></Label>
                                     </StackLayout>
-                                    
                                 </StackLayout>
-                                
                             </Frame>
-                            
-                            
                         </Grid>
                     </ViewCell>
-                    
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-
 </ContentPage>

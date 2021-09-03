@@ -23,9 +23,11 @@ namespace MailAppMVVM.Views
             Navigation.PopAsync();
         }
 
-         private void SendButton_Clicked(object sender, EventArgs e)
+        private void SendButton_Clicked(object sender, EventArgs e)
         {
             MailContent mailContent = ((AddNewMailViewModel)BindingContext).mailContent;
+            MessagingCenter.Send(this, "NewMailPage", mailContent);
+            mailContent.IconMail = "AccountLogo.png";
             Navigation.PopAsync();
         }
     }

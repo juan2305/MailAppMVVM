@@ -6,6 +6,7 @@ namespace MailAppMVVM.Models
 {
    public class MailContent
     {
+        public int MailId { get; set; }
         public string FromMail { get; set; }
         public string ToMail { get; set; }
         public string BodyMail { get; set; }

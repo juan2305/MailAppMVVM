@@ -9,10 +9,9 @@ namespace MailAppMVVM
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.FromHex("#FF2E2E"), BarTextColor = Color.White,};
         }
-
+     
         protected override void OnStart()
         {
         }
