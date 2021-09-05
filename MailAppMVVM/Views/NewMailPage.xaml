@@ -9,19 +9,22 @@
     <NavigationPage.TitleView>
         <Label Text="New Mail" FontSize="28" TextColor="#FFFF" HorizontalOptions="CenterAndExpand"/>
     </NavigationPage.TitleView>
-    <StackLayout>
-    
-        <Entry x:Name="fromEntry" Placeholder="From" Text="{Binding mailContent.FromMail}"></Entry>
-        <Entry x:Name="toEntry" Placeholder="To" Text="{Binding mailContent.ToMail}"></Entry>
-        <Entry x:Name="subjectEntry" Placeholder="Subject" Text="{Binding mailContent.SubjectMail}"></Entry>
-        <Entry x:Name="bodyEntry" Placeholder="Body" Text="{Binding mailContent.BodyMail}"></Entry>
-       
-            <Button ImageSource="SendIcon2.png"
+    <StackLayout Spacing="15" Padding="20">
+        
+            <Entry x:Name="fromEntry" Placeholder="From" Text="{Binding mailContent.FromMail}"></Entry>
+            <Entry x:Name="toEntry" Placeholder="To" Text="{Binding mailContent.ToMail}"></Entry>
+            <Entry x:Name="subjectEntry" Placeholder="Subject" Text="{Binding mailContent.SubjectMail}"></Entry>
+            <Entry x:Name="bodyEntry" Placeholder="Body" Text="{Binding mailContent.BodyMail}"></Entry>
+             <Button ImageSource="SendIcon2.png"
                     BackgroundColor="#FF2E2E"
                     Padding="2"
-                    
             CornerRadius="50"
             Clicked="SendButtonClicked" Command="{Binding mailContent} " ></Button>
+        
+   
+        
+       
+          
       
     </StackLayout>
 </ContentPage>

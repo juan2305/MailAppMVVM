@@ -16,7 +16,7 @@
                      Name="NavigationBarButton" 
                      Order="Primary" Text="Add" 
                      Priority="0"
-                     Clicked="NavigationBarButton_Clicked"/>
+                     Clicked="NavigationBarButtonClicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
         <ListView x:Name="MainListView"
@@ -48,8 +48,8 @@
                                          Text= "{Binding FromMail}" 
                                          HorizontalOptions="StartAndExpand" 
                                          TextColor="Black"
-                                        FontSize="14"/>
-                                        
+                                        FontSize="16"/>
+
                                         <Label Grid.Column="3"
                                          Grid.Row="0"
                                          Text="{Binding DateMail}" 
@@ -57,10 +57,16 @@
                                         TextColor="Black"
                                          FontSize="14"
                                          Opacity="0.6"/>
-                                        </Grid>
-                                    <Label VerticalOptions="Center" Text="{Binding ToMail}" TextColor="Black"></Label>
-                                    <Label VerticalOptions="End" Text="{Binding SubjectMail}" TextColor="Black"></Label>
-                                    <Label VerticalOptions="End" Text="{Binding BodyMail}" TextColor="Black"></Label>
+                                        
+                                    </Grid>
+                                    <Grid>
+                                        <Label Grid.Row="0" VerticalOptions="Start" Text="{Binding ToMail}" TextColor="Black"></Label>
+                                        <Label Grid.Row="0" VerticalOptions="Center" Text="{Binding SubjectMail}" TextColor="Black"></Label>
+                                        <Label Grid.Row="0" VerticalOptions="End" Text="{Binding BodyMail}" TextColor="Black" ></Label>
+                                        <Image Source="FavoriteMail.png" HorizontalOptions="End" Scale="0.7"/>
+                                    </Grid>
+                                    
+                                   
                                 </StackLayout>
                                 </StackLayout>
                             </Frame>
@@ -80,8 +86,9 @@
         </ScrollView>
         
         <Button 
+            Clicked="NavigationBarButtonClicked"
             BackgroundColor="#FF2E2E"
-            ImageSource="WriteNewMail"
+            ImageSource="WriteNewMail.png"
             Grid.Row="0"   BorderWidth="1"  BorderRadius="35"  HorizontalOptions="End" WidthRequest="65" HeightRequest="65" Margin="0,0,20,22" VerticalOptions="End"/>
 
     </StackLayout>

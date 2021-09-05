@@ -30,7 +30,7 @@ namespace MailAppMVVM.Views
           if(string.IsNullOrEmpty(fromEntry.Text) || string.IsNullOrEmpty(toEntry.Text) || 
              string.IsNullOrEmpty(subjectEntry.Text) || string.IsNullOrEmpty(bodyEntry.Text))
             {
-                await DisplayAlert("Empty Fields", "Please Fill", "Ok");
+                await DisplayAlert("Empty Fields", "You must fill all the fields", "Ok");
             }
             else
             {
