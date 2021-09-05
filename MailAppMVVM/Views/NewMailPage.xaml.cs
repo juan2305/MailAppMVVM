@@ -17,18 +17,28 @@ namespace MailAppMVVM.Views
         public NewMailPage()
         {
             InitializeComponent();
+           
         }
         public void CreateNewMail(object sender, EventArgs e)
         {
-            Navigation.PopAsync();
+          
         }
-
-        private void SendButton_Clicked(object sender, EventArgs e)
+     
+        async void SendButtonClicked(System.Object sender, EventArgs e)
         {
-            MailContent mailContent = ((AddNewMailViewModel)BindingContext).mailContent;
-            MessagingCenter.Send(this, "NewMailPage", mailContent);
-            mailContent.IconMail = "AccountLogo.png";
-            Navigation.PopAsync();
+            
+          if(string.IsNullOrEmpty(fromEntry.Text) || string.IsNullOrEmpty(toEntry.Text) || 
+             string.IsNullOrEmpty(subjectEntry.Text) || string.IsNullOrEmpty(bodyEntry.Text))
+            {
+                await DisplayAlert("Empty Fields", "Please Fill", "Ok");
+            }
+            else
+            {
+                MailContent mailContent = ((AddNewMailViewModel)BindingContext).mailContent;
+                MessagingCenter.Send(this, "NewMailPage", mailContent);
+                _ = Navigation.PopAsync();
+            }
+         
         }
     }
 }

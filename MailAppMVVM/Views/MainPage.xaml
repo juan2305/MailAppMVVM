@@ -19,42 +19,70 @@
                      Clicked="NavigationBarButton_Clicked"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <ListView 
+        <ListView x:Name="MainListView"
             ItemsSource="{Binding MailList}"
+                 
             HasUnevenRows="True"
             SeparatorVisibility="None"
             SeparatorColor="Black"
             IsPullToRefreshEnabled="True"
-            IsRefreshing="{Binding MailList, Mode=OneWay}"
-            RefreshCommand="{Binding Refresh}"
+           RefreshCommand="{Binding RefreshCommand}"
+           IsRefreshing="{Binding IsRefreshing}"
             RefreshControlColor="Green"
             >
             <ListView.ItemTemplate>
+                
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
                             <MenuItem Text="Delete" Command="{Binding DeleteCommand}"></MenuItem>
                         </ViewCell.ContextActions>
-                        <Grid Padding="01">
-                            <Frame CornerRadius="0">
+                        
+                            <Frame CornerRadius="2">
                                 <StackLayout Orientation="Horizontal">
-                                    <Image Source="AccountLogo" VerticalOptions="Start" HorizontalOptions="Start"></Image>
-                                    <StackLayout VerticalOptions="Start">
-                                        <Grid>
-                                            <Label VerticalOptions="Center" Text="{Binding FromMail}" HorizontalOptions="Start" ></Label>
-                                            <Label VerticalOptions="Center" Text="{Binding DateMail}" HorizontalOptions="EndAndExpand"></Label>
+                                    <Image Source="AccountLogo" VerticalOptions="Center" HorizontalOptions="Start" Scale="1.2"></Image>
+                                <StackLayout VerticalOptions="StartAndExpand">
+                                    <Grid>
+                                        <Label Grid.Column="0"
+                                         Grid.Row="0"
+                                         Text= "{Binding FromMail}" 
+                                         HorizontalOptions="StartAndExpand" 
+                                         TextColor="Black"
+                                        FontSize="14"/>
+                                        
+                                        <Label Grid.Column="3"
+                                         Grid.Row="0"
+                                         Text="{Binding DateMail}" 
+                                         HorizontalOptions="End"
+                                        TextColor="Black"
+                                         FontSize="14"
+                                         Opacity="0.6"/>
                                         </Grid>
-                                        <Label VerticalOptions="Center" Text="{Binding ToMail}"></Label>
-                                        <Label VerticalOptions="End" Text="{Binding SubjectMail}"></Label>
-                                        <Label VerticalOptions="End" Text="{Binding BodyMail}"></Label>
-                                    </StackLayout>
+                                    <Label VerticalOptions="Center" Text="{Binding ToMail}" TextColor="Black"></Label>
+                                    <Label VerticalOptions="End" Text="{Binding SubjectMail}" TextColor="Black"></Label>
+                                    <Label VerticalOptions="End" Text="{Binding BodyMail}" TextColor="Black"></Label>
+                                </StackLayout>
                                 </StackLayout>
                             </Frame>
-                        </Grid>
+                   
                     </ViewCell>
 
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        </Grid>
+        <ScrollView Grid.Row="0">
+            
+        </ScrollView>
+        
+        <Button 
+            BackgroundColor="#FF2E2E"
+            ImageSource="WriteNewMail"
+            Grid.Row="0"   BorderWidth="1"  BorderRadius="35"  HorizontalOptions="End" WidthRequest="65" HeightRequest="65" Margin="0,0,20,22" VerticalOptions="End"/>
+
     </StackLayout>
 </ContentPage>

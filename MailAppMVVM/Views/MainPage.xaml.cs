@@ -13,11 +13,12 @@ namespace MailAppMVVM
     {
         public MainPage()
         {
+           
+        InitializeComponent();
 
-            InitializeComponent();
         }
-       
 
+     
         private void NavigationBarButton_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new NewMailPage());
