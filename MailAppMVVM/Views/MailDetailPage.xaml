@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:MailAppMVVM.ViewModel"
+             x:Class="MailAppMVVM.Views.MailDetailPage"
+             >
+
+   
+    <NavigationPage.TitleView>
+        <Label Text="Mail Detail" FontSize="28" TextColor="#FFFF" HorizontalOptions="Center"/>
+    </NavigationPage.TitleView>
+    <StackLayout>
+        <Label x:Name="FromField" HorizontalTextAlignment="Center"/>
+        <Label x:Name="DateLabel" HorizontalTextAlignment="Center"/>
+        <Label x:Name="ToFieldLabel" HorizontalTextAlignment="Center"/>
+        <Label x:Name="SubjectLabel" HorizontalTextAlignment="Center"/>
+        <Label x:Name="BodyFieldLabel" HorizontalTextAlignment="Center"/>
+    </StackLayout>
+</ContentPage>

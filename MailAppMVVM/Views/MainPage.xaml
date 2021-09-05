@@ -21,7 +21,7 @@
     <StackLayout>
         <ListView x:Name="MainListView"
             ItemsSource="{Binding MailList}"
-                 
+            ItemSelected="MailSelected"
             HasUnevenRows="True"
             SeparatorVisibility="None"
             SeparatorColor="Black"
@@ -30,12 +30,15 @@
            IsRefreshing="{Binding IsRefreshing}"
             RefreshControlColor="Green"
             >
+            
             <ListView.ItemTemplate>
                 
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Delete" Command="{Binding DeleteCommand}"></MenuItem>
+                            
+                            <MenuItem Text="Delete" Command="{Binding DeleteCommand}" Clicked="DeleteButtonClicked" 
+                                      ></MenuItem>
                         </ViewCell.ContextActions>
                         
                             <Frame CornerRadius="2">
@@ -85,7 +88,7 @@
             
         </ScrollView>
         
-        <Button 
+        <Button x:Name="FloatingButton"
             Clicked="NavigationBarButtonClicked"
             BackgroundColor="#FF2E2E"
             ImageSource="WriteNewMail.png"

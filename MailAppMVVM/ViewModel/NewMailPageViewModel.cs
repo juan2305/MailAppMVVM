@@ -18,20 +18,17 @@ namespace MailAppMVVM.ViewModel
         public NewMailPageViewModel()
         {
             MailList = new ObservableCollection<MailContent>();
-           // MailList.Add(new MailContent() { MailId = 1, FromMail = "From Juan", ToMail = "To: Mayelin", BodyMail = "Esto es una prueba enviada por Juan", DateMail = DateTime.Now.ToShortTimeString(), IconMail = "AccountLogo.png", SubjectMail = "Subject: Probando" });
             MessagingCenter.Subscribe<NewMailPage, MailContent>(this, "NewMailPage", (page, MailContent) =>
-         {
-             if (MailContent.MailId == 0)
-             {
-                 MailContent.MailId = MailList.Count + 1;
-                 MailContent.DateMail = DateTime.Now.ToShortTimeString();
-                 MailList.Add(MailContent);
-             }
+            {
+                if (MailContent.MailId == 0)
+                {
+                    MailContent.MailId = MailList.Count + 1;
+                    MailContent.DateMail = DateTime.Now.ToShortTimeString();
+                    MailList.Add(MailContent);
+                }
 
-         });
+            });
         }
-        
+
     }
 }
-
- 
